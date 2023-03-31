@@ -1,4 +1,4 @@
-warnings
+streamlit
 tensorflow
 keras
 numpy
