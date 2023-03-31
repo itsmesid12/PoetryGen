@@ -71,8 +71,6 @@ col2.title("Menu")
 ol1,col2 = st.sidebar.columns([2,10])
 menu = col2.radio('', ['Poetry', 'Brief'], key='menu', horizontal=True, label_visibility="collapsed", on_change=callback())
 
-col1,col2 = st.sidebar.columns([1,8])
-col2.title("Generator")
 
 if menu == 'Poetry':
     show_poetry_page()
