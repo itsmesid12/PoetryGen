@@ -16,11 +16,8 @@ def callback():
         st.session_state.disabled = False
 
 def load_model(path):
-    e_path = r'C:\Users\Admin\PoGr\one_step'
-    with zipfile.ZipFile(path,'r') as zip_ref:
-        zip_ref.extractall(e_path)
     
-    model = tf.saved_model.load(r'C:\Users\Admin\PoGr\one_step\content\one_step')
+    model = tf.saved_model.load(path)
     return model
 
 def predict(text):
@@ -28,7 +25,7 @@ def predict(text):
     states=None
     next_char = tf.constant([text])
     result = [next_char]
-    model = load_model(r'C:\Users\Admin\PoGr\one_step.zip')
+    model = load_model('one_step/content/one_step')
     
     for n in range(1000):
         next_char, states = model.generate_one_step(next_char,states=states)
