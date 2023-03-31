@@ -1,7 +1,6 @@
 import streamlit as st
 import warnings
 import tensorflow as tf
-import zipfile
 from doc import doc
 
 warnings.filterwarnings("ignore", message=".*label.*empty value.*")
