@@ -25,7 +25,7 @@ def predict(text):
     states=None
     next_char = tf.constant([text])
     result = [next_char]
-    model = load_model('one_step/')
+    model = load_model('one_step')
     
     for n in range(1000):
         next_char, states = model.generate_one_step(next_char,states=states)
