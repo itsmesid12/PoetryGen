@@ -2,6 +2,10 @@ import streamlit as st
 import warnings
 import tensorflow as tf
 from doc import doc
+import tensorflow as tf
+
+# Define the io device
+
 
 warnings.filterwarnings("ignore", message=".*label.*empty value.*")
 
@@ -16,8 +20,12 @@ def callback():
         st.session_state.disabled = False
 
 def load_model():
-    load_options = tf.saved_model.LoadOptions(experimental_io_device='/job:localhost')
-    model = tf.saved_model.load('one_step', options=load_options)
+    io_device = '/job:localhost'
+    model = tf.saved_model.load(
+    'one_step',
+    options=tf.saved_model.LoadOptions(experimental_io_device=io_device)
+)
+
     return model
 
 def predict(text):
