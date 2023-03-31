@@ -16,8 +16,8 @@ def callback():
         st.session_state.disabled = False
 
 def load_model():
-    
-    model = tf.saved_model.load('one_step')
+    load_options = tf.saved_model.LoadOptions(experimental_io_device='/job:localhost')
+    model = tf.saved_model.load('one_step', options=load_options)
     return model
 
 def predict(text):
